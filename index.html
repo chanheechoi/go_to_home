@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>여보 출근 안내</title>
+    <title>여보 퇴근 안내</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script
         src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=ytHPSxRKZf6uirs6eacaD441tf5wTLD6Q9PPB4Y0"></script>
@@ -100,17 +100,13 @@
                             .toFixed(1) + "km,";
                     var tTime = " 총 시간 : "
                         + (resultData[0].properties.totalTime / 60)
-                            .toFixed(0) + "분,";
-                    var tFare = " 총 요금 : "
-                        + resultData[0].properties.totalFare
-                        + "원,";
+                            .toFixed(0) + "분,";                    
                     var taxiFare = " 예상 택시 요금 : "
                         + resultData[0].properties.taxiFare
                         + "원";
 
                     $("#result").text(
-                        tDistance + tTime + tFare
-                        + taxiFare);
+                        tDistance + tTime + taxiFare);
 
                     //교통정보 표출 옵션값을 체크
                     if (trafficInfochk == "Y") {
@@ -414,6 +410,7 @@
 </head>
 
 <body onload="initTmap();">
+    <h1> 여보 퇴근 시간 안내 </h1>
     <div id="map_div" style="width:100%;height:400px;"></div>
     <p id="result"></p>
 </body>
